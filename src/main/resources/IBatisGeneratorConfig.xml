@@ -107,8 +107,6 @@
       <!--<generatedKey column="productnum" sqlStatement="select SEQ_{0}.nextval from dual" identity="false" type="pre"/>-->
       <!--<domainObjectRenamingRule searchString="^AP" replaceString=""/>-->
     </table>
-    <!--<table tableName="Article" domainObjectName="ArticlePo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>-->
-    
 
   </context>
 </generatorConfiguration>

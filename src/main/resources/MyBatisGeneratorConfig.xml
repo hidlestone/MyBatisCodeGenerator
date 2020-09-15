@@ -53,9 +53,7 @@
             <!--<property name="rootClass" value="com.payn.pojo.Test"/>-->
         </javaClientGenerator>
         
-        <!---->
         <table tableName="article_tag" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
-        <!--<table schema="" tableName="article" enableCountByExample="false"/>-->
 
     </context>
 </generatorConfiguration>
