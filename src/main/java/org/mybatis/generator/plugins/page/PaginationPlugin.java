@@ -15,11 +15,6 @@ import org.mybatis.generator.api.dom.xml.XmlElement;
 
 import java.util.List;
 
-/**
- * <P>File name : PaginationPlugin.java </P>
- * <P>Author : fly </P>
- * <P>Date : 2013-7-2 上午11:50:45 </P>
- */
 public class PaginationPlugin extends PluginAdapter {
 	@Override
 	public boolean modelExampleClassGenerated(TopLevelClass topLevelClass,

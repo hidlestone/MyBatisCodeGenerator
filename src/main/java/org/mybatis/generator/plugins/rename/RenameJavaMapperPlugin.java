@@ -1,6 +1,5 @@
 package org.mybatis.generator.plugins.rename;
 
-
 import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;
 
@@ -11,30 +10,6 @@ import java.util.regex.Pattern;
 import static org.mybatis.generator.internal.util.StringUtility.stringHasValue;
 import static org.mybatis.generator.internal.util.messages.Messages.getString;
 
-/**
- * This plugin demonstrates overriding the initialized() method to rename the
- * generated example classes. Instead of xxxExample, the classes will be named
- * xxxCriteria
- * <p>
- * This plugin accepts two properties:
- * <ul>
- * <li><tt>searchString</tt> (required) the regular expression of the name
- * search.</li>
- * <li><tt>replaceString</tt> (required) the replacement String.</li>
- * </ul>
- * <p>
- * For example, to change the name of the generated Example classes from
- * xxxExample to xxxCriteria, specify the following:
- * <p>
- * <dl>
- * <dt>searchString</dt>
- * <dd>Example$</dd>
- * <dt>replaceString</dt>
- * <dd>Criteria</dd>
- * </dl>
- *
- * @author Jeff Butler
- */
 public class RenameJavaMapperPlugin extends PluginAdapter {
 	private String searchString;
 	private String replaceString;
@@ -45,13 +20,10 @@ public class RenameJavaMapperPlugin extends PluginAdapter {
 	}
 
 	public boolean validate(List<String> warnings) {
-
 		searchString = properties.getProperty("searchString"); //$NON-NLS-1$
 		replaceString = properties.getProperty("replaceString"); //$NON-NLS-1$
-
 		boolean valid = stringHasValue(searchString)
 				&& stringHasValue(replaceString);
-
 		if (valid) {
 			pattern = Pattern.compile(searchString);
 		} else {
@@ -66,7 +38,6 @@ public class RenameJavaMapperPlugin extends PluginAdapter {
 						"replaceString")); //$NON-NLS-1$
 			}
 		}
-
 		return valid;
 	}
 
@@ -78,7 +49,6 @@ public class RenameJavaMapperPlugin extends PluginAdapter {
 		oldInterfaceType = matcher.replaceAll(replaceString);
 		oldInterfaceImplType = matcher.replaceAll(replaceString);
 		oldInterfaceImplType += "Impl";
-
 		introspectedTable.setDAOInterfaceType(oldInterfaceType);
 		introspectedTable.setDAOImplementationType(oldInterfaceImplType);
 	}
@@ -91,5 +61,6 @@ public class RenameJavaMapperPlugin extends PluginAdapter {
 //
 //        introspectedTable.setMyBatis3JavaMapperType(oldType);
 //    }
+	
 }
 

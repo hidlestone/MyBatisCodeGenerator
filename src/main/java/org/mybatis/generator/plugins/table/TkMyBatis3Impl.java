@@ -1,16 +1,12 @@
 package org.mybatis.generator.plugins.table;
 
-
 import org.mybatis.generator.codegen.mybatis3.IntrospectedTableMyBatis3Impl;
 
 import java.text.MessageFormat;
 
 import static org.mybatis.generator.internal.util.StringUtility.stringHasValue;
 
-/**
- * Created by mypc on 2017/2/13.
- */
-public class TkMyBatis3Impl  extends IntrospectedTableMyBatis3Impl {
+public class TkMyBatis3Impl extends IntrospectedTableMyBatis3Impl {
 	@Override
 	protected String calculateMyBatis3XmlMapperFileName() {
 		StringBuilder sb = new StringBuilder();
@@ -76,8 +72,5 @@ public class TkMyBatis3Impl  extends IntrospectedTableMyBatis3Impl {
 		}
 		setMyBatis3SqlProviderType(sb.toString());
 	}
-
-
-
-
+	
 }

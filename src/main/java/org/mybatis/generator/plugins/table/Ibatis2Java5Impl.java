@@ -87,4 +87,5 @@ public class Ibatis2Java5Impl extends IntrospectedTableIbatis2Java5Impl {
 		sb.append("Po");//add by zzx
 		setBaseRecordType(sb.toString());
 	}
+	
 }

@@ -1,59 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration
-    PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
-    "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <!-- 读取数据库相关配置文件 -->
-    <properties resource="db.properties"/>
-    
-    <context id="testGenerator" targetRuntime="MyBatis3">
-        <commentGenerator>
-            <!-- 是否去除自动生成的注释 -->
-            <property name="suppressAllComments" value="true"/>
-        </commentGenerator>
-        <!-- 数据库连接的信息 -->
-        <jdbcConnection driverClass="${jdbc.driverClassName}"
-                        connectionURL="${jdbc.url}"
-                        userId="${jdbc.username}"
-                        password="${jdbc.password}">
-        </jdbcConnection>
+	<!-- 读取数据库相关配置文件 -->
+	<properties resource="db.properties"/>
 
-        <!-- false：把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer
-             true ：把JDBC DECIMAL 和 NUMERIC 类型解析为 java.math.BigDecimal -->
-        <javaTypeResolver>
-            <property name="forceBigDecimals" value="false"/>
-        </javaTypeResolver>
+	<context id="testGenerator" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<!-- 是否去除自动生成的注释 -->
+			<property name="suppressAllComments" value="true"/>
+		</commentGenerator>
+		<!-- 数据库连接的信息 -->
+		<jdbcConnection driverClass="${jdbc.driverClassName}"
+		                connectionURL="${jdbc.url}"
+		                userId="${jdbc.username}"
+		                password="${jdbc.password}">
+		</jdbcConnection>
 
-        <!-- POJO 类生成的位置 -->
-        <javaModelGenerator targetPackage="${java.model.target.package}"
-                            targetProject="${java.model.target.project}">
-            <!-- enableSubPackages : 是否让schema作为包的后缀 -->
-            <property name="enableSubPackages" value="true"/>
-            <!-- 从数据库返回的值被清理前后的空格 -->
-            <property name="trimStrings" value="true"/>
-            <!-- POJO 继承的类-->
-            <!--<property name="rootClass" value="com.payn.pojo.Test"/>-->
-        </javaModelGenerator>
-        
-        <!-- Mapper 映射文件生成的位置 -->
-        <sqlMapGenerator targetPackage="${sqlmap.target.package}"
-                         targetProject="${sqlmap.target.project}">
-            <!-- enableSubPackages : 是否让schema作为包的后缀 -->
-            <property name="enableSubPackages" value="false"/>
-        </sqlMapGenerator>
-        
-        <!-- Mapper 接口生成的位置 -->
-        <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="${javaClient.target.package}"
-                             targetProject="${javaClient.target.project}">
-            <!-- enableSubPackages : 是否让schema作为包的后缀 -->
-            <property name="enableSubPackages" value="true"/>
-            <!-- Mapper 接口继承的类-->
-            <!--<property name="rootClass" value="com.payn.pojo.Test"/>-->
-        </javaClientGenerator>
-        
-        <table tableName="article_tag" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		<!-- false：把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer
+			 true ：把JDBC DECIMAL 和 NUMERIC 类型解析为 java.math.BigDecimal -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false"/>
+		</javaTypeResolver>
 
-    </context>
+		<!-- POJO 类生成的位置 -->
+		<javaModelGenerator targetPackage="${java.model.target.package}"
+		                    targetProject="${java.model.target.project}">
+			<!-- enableSubPackages : 是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="true"/>
+			<!-- 从数据库返回的值被清理前后的空格 -->
+			<property name="trimStrings" value="true"/>
+			<!-- POJO 继承的类-->
+			<!--<property name="rootClass" value="com.payn.pojo.Test"/>-->
+		</javaModelGenerator>
+
+		<!-- Mapper 映射文件生成的位置 -->
+		<sqlMapGenerator targetPackage="${sqlmap.target.package}"
+		                 targetProject="${sqlmap.target.project}">
+			<!-- enableSubPackages : 是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false"/>
+		</sqlMapGenerator>
+
+		<!-- Mapper 接口生成的位置 -->
+		<javaClientGenerator type="XMLMAPPER"
+		                     targetPackage="${javaClient.target.package}"
+		                     targetProject="${javaClient.target.project}">
+			<!-- enableSubPackages : 是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="true"/>
+			<!-- Mapper 接口继承的类-->
+			<!--<property name="rootClass" value="com.payn.pojo.Test"/>-->
+		</javaClientGenerator>
+
+		<!-- 在此处添加需要生成的数据库表 -->
+		<table tableName="advert" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		<table tableName="advert_pic" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		<table tableName="article_category" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		<table tableName="article_tag" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		<table tableName="official_article" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		<table tableName="official_article_comment" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		<table tableName="official_article_like" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		<table tableName="page_content" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		<table tableName="page_content_category" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		<table tableName="sys_dict_item" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		<table tableName="sys_dict_set" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		<table tableName="sys_user" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		<table tableName="travel_note" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		<table tableName="travel_note_comment" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		<table tableName="travel_note_like" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		<table tableName="travel_note_pic" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		<table tableName="upload_pic" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		<table tableName="wechat_scenery" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		<table tableName="wechat_scenery_pic" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		<table tableName="wechat_user" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"  selectByExampleQueryId="false"></table>
+		
+	</context>
 </generatorConfiguration>

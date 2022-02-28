@@ -1,112 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration
-        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
-        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-  <!-- 读取配置文件 -->
-  <properties resource="db.properties"/>
+	<!-- 读取配置文件 -->
+	<properties resource="db.properties"/>
 
-  <context id="testGenerator" targetRuntime="Ibatis2Java5">
-    <!-- POJO 生成 serialVersionUID -->
-    <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
-    <!-- POJO 生成 hashcode 和 equals 方法 -->
-    <!--<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>-->
-    <!-- 这个插件只会增加字符串字段映射到一个 JDBC 字符的方法 -->
-    <!--<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"/>-->
-    <!-- POJO 生成toString -->
-    <!--<plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>-->
+	<context id="testGenerator" targetRuntime="Ibatis2Java5">
+		<!-- POJO 生成 serialVersionUID -->
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+		<!-- POJO 生成 hashcode 和 equals 方法 -->
+		<!--<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>-->
+		<!-- 这个插件只会增加字符串字段映射到一个 JDBC 字符的方法 -->
+		<!--<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"/>-->
+		<!-- POJO 生成toString -->
+		<!--<plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>-->
 
-    <!-- 映射配置文件名称配置  此处是将UserMapper.xml改名为UserDao.xml。 -->
-    <plugin type="org.mybatis.generator.plugins.rename.RenameSqlMapperPlugin">
-      <property name="searchString" value="_SqlMap" />
-      <property name="replaceString" value=" " />
-    </plugin>
+		<!-- 映射配置文件名称配置  此处是将UserMapper.xml改名为UserDao.xml。 -->
+		<plugin type="org.mybatis.generator.plugins.rename.RenameSqlMapperPlugin">
+			<property name="searchString" value="_SqlMap"/>
+			<property name="replaceString" value=" "/>
+		</plugin>
 
-    <!-- 此处是将UserMapper改名为UserDao接口。 -->
-    <plugin type="org.mybatis.generator.plugins.rename.RenameJavaMapperPlugin">
-      <property name="searchString" value="PoDAO$" />
-      <property name="replaceString" value="Dos" />
-    </plugin>
+		<!-- 此处是将UserMapper改名为UserDao接口。 -->
+		<plugin type="org.mybatis.generator.plugins.rename.RenameJavaMapperPlugin">
+			<property name="searchString" value="PoDAO$"/>
+			<property name="replaceString" value="Dos"/>
+		</plugin>
 
-    <commentGenerator>
-      <property name="suppressDate" value="true"/><!--是否去掉日期注释-->
-      <property name="suppressAllComments" value="true"/><!--是否去掉全部注释-->
-    </commentGenerator>
-    <!-- 数据库连接的信息 -->
-    <jdbcConnection driverClass="${jdbc.driverClassName}"
-                    connectionURL="${jdbc.url}"
-                    userId="${jdbc.username}"
-                    password="${jdbc.password}">
-    </jdbcConnection>
+		<commentGenerator>
+			<property name="suppressDate" value="true"/><!--是否去掉日期注释-->
+			<property name="suppressAllComments" value="true"/><!--是否去掉全部注释-->
+		</commentGenerator>
+		<!-- 数据库连接的信息 -->
+		<jdbcConnection driverClass="${jdbc.driverClassName}"
+		                connectionURL="${jdbc.url}"
+		                userId="${jdbc.username}"
+		                password="${jdbc.password}">
+		</jdbcConnection>
 
-    <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和 
-      NUMERIC 类型解析为java.math.BigDecimal -->
-    <!-- 只有一个属于forceBigDecimals，默认false。如果字段精确超过0，生成BigDecimal 如果字段精确是0，总长度10-18生成Long; 如果字段精确是0，总长5-9生成Integer; 如果字段精确是0，总长小于5生成Short; 如果forceBigDecimals为true,统一生成BigDecimal -->
-    <javaTypeResolver type="org.mybatis.generator.plugins.util.MyJavaTypeResolver">
-      <property name="forceBigDecimals" value="false"/>
-    </javaTypeResolver>
+		<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和 
+		  NUMERIC 类型解析为java.math.BigDecimal -->
+		<!-- 只有一个属于forceBigDecimals，默认false。如果字段精确超过0，生成BigDecimal 如果字段精确是0，总长度10-18生成Long; 如果字段精确是0，总长5-9生成Integer; 如果字段精确是0，总长小于5生成Short; 如果forceBigDecimals为true,统一生成BigDecimal -->
+		<javaTypeResolver type="org.mybatis.generator.plugins.util.MyJavaTypeResolver">
+			<property name="forceBigDecimals" value="false"/>
+		</javaTypeResolver>
 
-    <!-- targetProject:生成PO类的位置 -->
-    <javaModelGenerator targetPackage="${java.model.target.package}"
-                        targetProject="${java.model.target.project}">
-      <!-- 是否对model添加 构造函数 -->
-      <property name="constructorBased" value="true"/>
-      <!-- enableSubPackages:是否让schema作为包的后缀 -->
-      <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
-      <property name="enableSubPackages" value="true"/>
-      <!-- 从数据库返回的值被清理前后的空格 -->
-      <property name="trimStrings" value="false"/>
-      <!--<property name="rootClass" value="com.pinyougou.pojo.Test"/>-->
-      <!-- 建立的Model对象是否 不可改变  即生成的Model对象不会有 setter方法，只有构造方法 -->
-      <!--<property name="immutable" value="false"/>-->
-    </javaModelGenerator>
+		<!-- targetProject:生成PO类的位置 -->
+		<javaModelGenerator targetPackage="${java.model.target.package}"
+		                    targetProject="${java.model.target.project}">
+			<!-- 是否对model添加 构造函数 -->
+			<property name="constructorBased" value="true"/>
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<!-- 是否允许子包，即targetPackage.schemaName.tableName -->
+			<property name="enableSubPackages" value="true"/>
+			<!-- 从数据库返回的值被清理前后的空格 -->
+			<property name="trimStrings" value="false"/>
+			<!--<property name="rootClass" value="com.pinyougou.pojo.Test"/>-->
+			<!-- 建立的Model对象是否 不可改变  即生成的Model对象不会有 setter方法，只有构造方法 -->
+			<!--<property name="immutable" value="false"/>-->
+		</javaModelGenerator>
 
-    <!-- targetProject:mapper映射文件生成的位置 -->
-    <sqlMapGenerator targetPackage="${sqlmap.target.package}"
-                     targetProject="${sqlmap.target.project}">
-      <!-- enableSubPackages:是否让schema作为包的后缀 -->
-      <property name="enableSubPackages" value="false"/>
-    </sqlMapGenerator>
-
-
-    <!-- targetPackage：mapper/DAO接口生成的位置 -->
-    <javaClientGenerator type="GENERIC-SI"
-                         targetPackage="${javaClient.target.package}"
-                         targetProject="${javaClient.target.project}">
-      <!-- enableSubPackages:是否让schema作为包的后缀 -->
-      <property name="enableSubPackages" value="true"/>
-      <!--<property name="rootInterface" value="com.pinyougou.pojo.Test"/>-->
-      <!--
-            定义Maper.java 源代码中的ByExample() 方法的可视性，可选的值有：
-            public;
-            private;
-            protected;
-            default
-            注意：如果 targetRuntime="MyBatis3",此参数被忽略
-      -->
-      <!--<property name="exampleMethodVisibility" value=""/>-->
-      <!--
-          方法名计数器
-          Important note: this property is ignored if the target runtime is MyBatis3.
-      -->
-      <!--<property name="methodNameCalculator" value=""/>-->
-      <!--为生成的接口添加父接口 -->
-      <!--<property name="rootInterface" value=""/>-->
-      <!--继承的父类-->
-      <!--<property name="rootClass" value="com.pinyougou.pojo.Test"/>-->
-    </javaClientGenerator>
+		<!-- targetProject:mapper映射文件生成的位置 -->
+		<sqlMapGenerator targetPackage="${sqlmap.target.package}"
+		                 targetProject="${sqlmap.target.project}">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false"/>
+		</sqlMapGenerator>
 
 
-    <!-- 指定数据库表 -->
-    <!--schema表空间-->
-    <table tableName="Article" domainObjectName="ArticlePo" enableCountByExample="false"
-           enableUpdateByExample="false" enableDeleteByExample="false"
-           enableSelectByExample="false"  selectByExampleQueryId="false">
-      <!--<generatedKey column="productnum" sqlStatement="oracle" type="pre" identity="true"/>-->
-      <!--<generatedKey column="productnum" sqlStatement="select SEQ_{0}.nextval from dual" identity="false" type="pre"/>-->
-      <!--<domainObjectRenamingRule searchString="^AP" replaceString=""/>-->
-    </table>
+		<!-- targetPackage：mapper/DAO接口生成的位置 -->
+		<javaClientGenerator type="GENERIC-SI"
+		                     targetPackage="${javaClient.target.package}"
+		                     targetProject="${javaClient.target.project}">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="true"/>
+			<!--<property name="rootInterface" value="com.pinyougou.pojo.Test"/>-->
+			<!--
+				  定义Maper.java 源代码中的ByExample() 方法的可视性，可选的值有：
+				  public;
+				  private;
+				  protected;
+				  default
+				  注意：如果 targetRuntime="MyBatis3",此参数被忽略
+			-->
+			<!--<property name="exampleMethodVisibility" value=""/>-->
+			<!--
+				方法名计数器
+				Important note: this property is ignored if the target runtime is MyBatis3.
+			-->
+			<!--<property name="methodNameCalculator" value=""/>-->
+			<!--为生成的接口添加父接口 -->
+			<!--<property name="rootInterface" value=""/>-->
+			<!--继承的父类-->
+			<!--<property name="rootClass" value="com.pinyougou.pojo.Test"/>-->
+		</javaClientGenerator>
 
-  </context>
+		<!-- 指定数据库表 -->
+		<!--schema表空间-->
+		<table tableName="advert" domainObjectName="ArticlePo" enableCountByExample="false"
+		       enableUpdateByExample="false" enableDeleteByExample="false"
+		       enableSelectByExample="false"  selectByExampleQueryId="false">
+			<!--<generatedKey column="productnum" sqlStatement="oracle" type="pre" identity="true"/>-->
+			<!--<generatedKey column="productnum" sqlStatement="select SEQ_{0}.nextval from dual" identity="false" type="pre"/>-->
+			<!--<domainObjectRenamingRule searchString="^AP" replaceString=""/>-->
+		</table>
+		
+	</context>
 </generatorConfiguration>

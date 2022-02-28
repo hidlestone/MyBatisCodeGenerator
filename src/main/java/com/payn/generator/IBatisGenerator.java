@@ -11,9 +11,9 @@ import java.util.List;
 
 /**
  * IBatis 代码生成器
+ *
  * @author payn
- * @date 2020/9/6 13:07 
-*/
+ */
 public class IBatisGenerator {
 
 	public void generator() throws Exception {

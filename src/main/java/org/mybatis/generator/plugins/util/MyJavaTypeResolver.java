@@ -13,7 +13,6 @@ import java.sql.Types;
  */
 public class MyJavaTypeResolver extends JavaTypeResolverDefaultImpl {
 
-
 	public FullyQualifiedJavaType calculateJavaType(
 			IntrospectedColumn introspectedColumn) {
 		// TODO Auto-generated method stub
@@ -49,7 +48,6 @@ public class MyJavaTypeResolver extends JavaTypeResolverDefaultImpl {
 		} else {
 			answer = jdbcTypeInformation.getFullyQualifiedJavaType();
 		}
-
 		return answer;
 	}
 

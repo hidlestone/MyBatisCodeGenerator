@@ -10,12 +10,12 @@ import java.util.List;
 
 /**
  * MyBatis 代码生成器
+ *
  * @author: payn
- * @date: 2020/9/6 0:21
  */
 public class MyBatisGenerator {
 
-	public void generator() throws Exception{
+	public void generator() throws Exception {
 		List<String> warnings = new ArrayList<String>();
 		boolean overwrite = true;
 		File configFile = new File("src/main/resources/MyBatisGeneratorConfig.xml");
